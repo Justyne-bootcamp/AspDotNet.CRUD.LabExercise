@@ -1,0 +1,72 @@
+﻿@model CustomerData.Models.Customer
+@{
+    var action = ViewData["Action"];
+}
+
+<h3>@action Customer</h3>
+<form asp-controller"Customer" asp-action="Save" method="post">
+    @Html.Hidden("action",action)
+    @if (action.ToString().ToLower().Equals("edit"))
+    {
+        <input type="hidden" asp-for="Id" />        
+    }
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>FirstName</td>
+                <td>
+                    <input type="text" asp-for="FirstName" />
+                </td>
+                <td>
+                    <span asp-validation-for="FirstName"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>LastName</td>
+                <td>
+                    <input type="text" asp-for="LastName" /> 
+                </td>
+                <td>
+                    <span asp-validation-for="LastName"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td>
+                    <input type="text" asp-for="Address" />
+                </td>
+                <td>
+                    <span asp-validation-for="Address"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td>
+                    <input type="text" asp-for="Phone" />
+                </td>
+                <td>
+                    <span asp-validation-for="Phone"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>
+                    <input type="text" asp-for="Email" />
+                </td>
+                <td>
+                    <span asp-validation-for="Email"></span>
+                </td>
+            </tr>
+        </tbody>
+        <tr>
+            <td>
+                <input type="submit" value="save" />
+            </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    
+    
+</form>

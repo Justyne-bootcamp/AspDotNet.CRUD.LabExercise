@@ -1,0 +1,49 @@
+﻿@model IEnumerable<CustomerData.Models.Customer>
+@{
+}
+<div>
+    <h3>Welcome to the Customers  Page</h3>
+</div>
+
+<div>
+    @if (Model.Any())
+    {
+        <table cellpadding=10 cellspacing=10 class="table">
+            <thead>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.FirstName)</td>
+                    <td>@Html.DisplayNameFor(model => model.LastName)</td>
+                    <td>@Html.DisplayNameFor(model => model.Address)</td>
+                    <td>@Html.DisplayNameFor(model => model.Phone)</td>
+                    <td>@Html.DisplayNameFor(model => model.Email)</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var customer in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(model => customer.FirstName)</td>
+                        <td>@Html.DisplayFor(model => customer.LastName)</td>
+                        <td>@Html.DisplayFor(model => customer.Address)</td>
+                        <td>@Html.DisplayFor(model => customer.Phone)</td>
+                        <td>@Html.DisplayFor(model => customer.Email)</td>
+
+                        <td>@Html.ActionLink("Edit", "Edit", new { id=customer.Id })</td>
+                        <td>@Html.ActionLink("Details", "Details", new { id=customer.Id })</td>
+                        <td>@Html.ActionLink("Delete", "Delete", new { id=customer.Id })</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="btn-div">
+            <a asp-controller="Customer" asp-action="Create" class="create-btn">New Customer</a>
+        </div>
+    }
+    else
+    {
+        <p>No Customers Found.</p>
+    }
+</div>

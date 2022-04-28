@@ -1,0 +1,32 @@
+﻿@{
+    var customer = ViewData["Customer"] as CustomerData.Models.Customer;
+}
+
+<h3>Customer Details:</h3>
+<table>
+    <tbody class="table">
+        <tr>
+            <td>FirstName</td>
+            <td>@customer.FirstName</td>
+        </tr>
+        <tr>
+            <td>LastName</td>
+            <td>@customer.LastName</td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>@customer.Address</td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td>@customer.Phone</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>@customer.Email</td>
+        </tr>
+    </tbody>
+</table>
+<div class="btn-div">
+    <a asp-controller="Customer" asp-action="Index" class="create-btn">Back to List</a>
+</div>
