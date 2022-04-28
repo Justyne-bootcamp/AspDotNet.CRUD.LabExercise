@@ -17,9 +17,7 @@ namespace CustomerData.Models
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
-        [Required]
         public string Address { get; set; }
-        [Required]
         [RegularExpression(@"^(09[0-9]{9})$", ErrorMessage = "Invalid Mobile Number.")]
         public string Phone { get; set; }
         [Required]
